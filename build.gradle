@@ -9,26 +9,25 @@ buildscript {
         }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.3")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.22.1')
     }
 }
 
 plugins {
-    id "org.springframework.boot" version "2.7.3"
+    id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'java'
     id 'com.palantir.docker' version '0.22.1'
 }
 
-group = 'carara'
+group = 'cararax'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 bootJar {
     baseName = 'aws_project01'
     version = '0.0.1'
-//    mainClassName = "com.carara.aws_project01.AwsProject01Application"
 }
 
 task unpack(type: Copy) {
@@ -59,12 +58,3 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
-allprojects  {
-//    apply plugin: 'maven'
-    apply plugin: "io.spring.dependency-management"
-
-    group = 'com.wnp'
-    version = '6.5.0-SNAPSHOT'
-}
-
